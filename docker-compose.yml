@@ -1,0 +1,34 @@
+version: '2'
+services:
+  quickstart.cloudera:
+    image: cloudera/quickstart
+    hostname: quickstart.cloudera
+    privileged: true
+    command: bash -c "/usr/bin/docker-quickstart"
+    ports:
+      - "8887:8888"   # Hue server
+      - "10020:10020" # mapreduce job history server
+      - "8022:22"     # ssh
+      - "7180:7180"   # Cloudera Manager
+      - "8888:8888"   # HUE
+      - "11000:11000" # Oozie
+      - "50070:50070" # HDFS REST Namenode
+      - "50075:50075" # hdfs REST Datanode
+      - "8088:8088"   # yarn resource manager webapp address
+      - "19888:19888" # mapreduce job history webapp address
+      - "8983:8983"   # Solr console
+      - "8042:8042"   # yarn node manager
+      - "60010:60010" # hbase
+    tty: true
+    stdin_open: true
+  jupyter:
+    build: .
+    environment:
+      - GRANT_SUDO=yes
+    command: bash -c "start-notebook.sh --NotebookApp.token='' --port=8889"
+    volumes:
+      - <SET YOUR WORKING DIRECTORY>:/home/jovyan/work
+    ports:
+      - "8889:8889"
+    links:
+      - "quickstart.cloudera:quickstart.cloudera"

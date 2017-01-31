@@ -1,0 +1,14 @@
+<configuration>
+  <property>
+    <name>yarn.resourcemanager.hostname</name>
+    <value>quickstart.cloudera</value>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.address</name>
+    <value>quickstart.cloudera:8032</value>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.webapp.address</name>
+    <value>quickstart.cloudera:8088</value>
+  </property>
+</configuration>
