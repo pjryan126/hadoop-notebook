@@ -7,21 +7,21 @@ to allow the user to run Hadoop jobs from a Jupyter notebook. This application w
 for use in UC Berkeley's MIDS Machine Learning at Scale course (w261).
 
 ## Instructions
-1. Navigate to application directory.
+### Navigate to application directory.
 ```
 $ cd /path/to/hadoop-notebook
 ```
-1. Set your WORK directory in the docker-compose.yml file.
+### STEP 1. Set your WORK directory in the docker-compose.yml file.
 
-2. Build the modified Jupyter/datascience-notebook image.
+### STEP 2. Build the modified Jupyter/datascience-notebook image.
 ```
 $ docker-compose build
 ```
-3. Start application as a daemon.
+### STEP 3. Start application as a daemon.
 ```
 $ docker-compose up -d
 ```
-4. Add quickstart.cloudera to /etc/hosts file on host machine
+### STEP 4. Add quickstart.cloudera to /etc/hosts file on host machine
 
 - Get the cloudera.quickstart IP Address
 ```
@@ -35,4 +35,4 @@ $ docker inspect hadoopnotebook_quickstart.cloudera_1 # this is the name of the 
 <CLOUDERA.QUICKSTART IP ADDRESS>    cloudera.quickstart
 
 ```
-5. In your browser, visit localhost:8889 and you should be all set.
+### STEP 5. In your browser, visit localhost:8889 and you should be all set.
